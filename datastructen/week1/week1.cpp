@@ -11,8 +11,8 @@ bool search(std::string& s, char& key)
 
 void exercise1_1()
 {
-	std::string enteredString = "hi";
-	char enteredKey = 'o';
+	std::string enteredString;
+	char enteredKey;
 
 	std::cout << "enter a string to search through:" << std::endl;
 	std::cin >> enteredString;
@@ -29,7 +29,96 @@ void exercise1_1()
 	}
 }
 
+
+// Return true if substr is the prefix for cardNumber
+bool startsWith(const std::string& cardNumber, const std::string& substr)
+{
+	return cardNumber.find(substr) == 0;
+}
+
+// Return this number if it is a single digit, otherwise,
+// return the sum of the two digits
+int getDigit(int number)
+{
+	if (number < 10)
+	{
+		return number;
+	}
+	return (number / 10) + (number % 10);
+}
+
+// Get the result from Step 2
+int sumOfDoubleEvenPlace(const std::string& cardNumber)
+{
+	int steps = 1;
+	int sum = 0;
+	for (int i = cardNumber.length() - 1; i >= 0; i--)
+	{
+		if ((steps % 2) == 0)
+		{
+			sum += getDigit((cardNumber[i] - '0') * 2);
+		}
+		steps++;
+	}
+	return sum;
+}
+
+// Return sum of odd-place digits in the card number
+int sumOfOddPlace(const std::string& cardNumber)
+{
+	int steps = 1;
+	int sum = 0;
+	for (int i = cardNumber.length() - 1; i >= 0; i--)
+	{
+		if ((steps % 2) != 0)
+		{
+			sum += (cardNumber[i] - '0');
+		}
+		steps++;
+	}
+	return sum;
+}
+
+// Return true if the card number is valid
+bool isValid(const std::string& cardNumber)
+{
+	if (cardNumber.length() < 13 || cardNumber.length() > 16)
+	{
+		return false;
+	}
+
+	if (!(startsWith(cardNumber, "4") || startsWith(cardNumber, "5") || startsWith(cardNumber, "37") || startsWith(cardNumber, "6")))
+	{
+		return false;
+	}
+
+	std::cout << "double even: " << sumOfDoubleEvenPlace(cardNumber) << std::endl;//
+	std::cout << "odd: " << sumOfOddPlace(cardNumber) << std::endl;//
+	if (((sumOfDoubleEvenPlace(cardNumber) + sumOfOddPlace(cardNumber)) % 10) != 0)
+	{
+		return false;
+	}
+
+	return true;
+}
+
+void exercise1_2()
+{
+	std::string enteredString;
+	std::cout << "enter a card number:" << std::endl;
+	std::cin >> enteredString;
+	if (isValid(enteredString))
+	{
+		std::cout << "card number is valid" << std::endl;
+	}
+	else
+	{
+		std::cout << "card number is invalid" << std::endl;
+	}
+}
+
 int main()
 {
-	exercise1_1();
+	//exercise1_1();
+	exercise1_2();
 }
