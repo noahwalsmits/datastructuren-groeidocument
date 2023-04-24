@@ -117,8 +117,46 @@ void exercise1_2()
 	}
 }
 
+
+void count(const char s[], int counts[])
+{
+	std::string alphabet = "abcdefghijklmnopqrstuvwxyz";
+	for (int i = 0; i < alphabet.length(); i++)
+	{
+		int count = 0;
+		for (int j = 0; j < sizeof(s) / sizeof(char); j++) //decayed array ruins this
+		{
+			if (s[j] == alphabet[i])
+			{
+				count++;
+			}
+		}
+		counts[i] = count;
+	}
+}
+
+void exercise1_3()
+{
+	std::string alphabet = "abcdefghijklmnopqrstuvwxyz";
+	std::string enteredString;
+	int results[26];
+	std::cout << "enter a string:" << std::endl;
+	std::cin >> enteredString;
+	count(enteredString.c_str(), results);
+
+	for (int i = 0; i < alphabet.length(); i++)
+	{
+		if (results[i] > 0)
+		{
+			std::cout << alphabet[i] << ": " << results[i] << std::endl;
+		}
+	}
+}
+
+
 int main()
 {
 	//exercise1_1();
-	exercise1_2();
+	//exercise1_2();
+	exercise1_3();
 }
