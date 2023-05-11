@@ -124,7 +124,7 @@ void count(const char s[], int counts[])
 	for (int i = 0; i < alphabet.length(); i++)
 	{
 		int count = 0;
-		for (int j = 0; j < sizeof(s) / sizeof(char); j++) //decayed array ruins this
+		for (int j = 0; j < strlen(s); j++)
 		{
 			if (s[j] == alphabet[i])
 			{
