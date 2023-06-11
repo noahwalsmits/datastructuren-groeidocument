@@ -154,9 +154,26 @@ void exercise1_3()
 }
 
 
+const int SIZE = 4;
+double sumColumn(const double m[][SIZE], int rowSize, int columnIndex)
+{
+
+}
+
+void exercise1_4()
+{
+	//TODO
+}
+
+
 int main()
 {
-	//exercise1_1();
-	//exercise1_2();
+	std::cout << std::endl << "***exercise 1-1***" << std::endl;
+	exercise1_1();
+	std::cout << std::endl << "***exercise 1-2***" << std::endl;
+	exercise1_2();
+	std::cout << std::endl << "***exercise 1-3***" << std::endl;
 	exercise1_3();
+	//std::cout << std::endl << "***exercise 1-4***" << std::endl;
+	//exercise1_4();
 }
