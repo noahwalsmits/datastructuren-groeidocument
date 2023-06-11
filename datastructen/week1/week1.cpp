@@ -154,12 +154,6 @@ void exercise1_3()
 }
 
 
-const int SIZE = 4;
-double sumColumn(const double m[][SIZE], int rowSize, int columnIndex)
-{
-
-}
-
 void exercise1_4()
 {
 	//TODO
