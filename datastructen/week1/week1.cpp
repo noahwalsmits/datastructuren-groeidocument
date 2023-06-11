@@ -92,8 +92,6 @@ bool isValid(const std::string& cardNumber)
 		return false;
 	}
 
-	std::cout << "double even: " << sumOfDoubleEvenPlace(cardNumber) << std::endl;//
-	std::cout << "odd: " << sumOfOddPlace(cardNumber) << std::endl;//
 	if (((sumOfDoubleEvenPlace(cardNumber) + sumOfOddPlace(cardNumber)) % 10) != 0)
 	{
 		return false;
